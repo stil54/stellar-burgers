@@ -16,14 +16,25 @@ export type TConstructorIngredient = TIngredient & {
   id: string;
 };
 
+export type TUser = {
+  name: string;
+  email: string;
+};
+
 export type TOrder = {
   _id: string;
-  status: string;
+  ingredients: string[];
+  status: 'created' | 'pending' | 'done';
   name: string;
   createdAt: string;
   updatedAt: string;
   number: number;
-  ingredients: string[];
+};
+
+export type TFeed = {
+  orders: TOrder[];
+  total: number;
+  totalToday: number;
 };
 
 export type TOrdersData = {
@@ -32,9 +43,21 @@ export type TOrdersData = {
   totalToday: number;
 };
 
-export type TUser = {
+export type TLoginData = {
   email: string;
-  name: string;
+  password: string;
 };
 
-export type TTabMode = 'bun' | 'sauce' | 'main';
+export type TRegisterData = {
+  name: string;
+  email: string;
+  password: string;
+};
+
+export type TUpdateUserData = {
+  name?: string;
+  email?: string;
+  password?: string;
+};
+
+export type TTabMode = 'bun' | 'main' | 'sauce';
